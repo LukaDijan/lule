@@ -1,4 +1,3 @@
-from starlette.config import Config
 from envparse import env
 
 env.read_envfile()
