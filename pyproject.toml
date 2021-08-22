@@ -36,3 +36,4 @@ pre-commit = "^2.14.0"
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
 requests = "^2.26.0"
+black = {version = "^21.9b0", allow-prereleases = true}

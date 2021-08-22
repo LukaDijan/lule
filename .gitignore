@@ -146,6 +146,8 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
+.env
+
 ### Python ###
 # Byte-compiled / optimized / DLL files
 
@@ -211,3 +213,5 @@ cython_debug/
 # Cython debug symbols
 
 # End of https://www.toptal.com/developers/gitignore/api/python,flask
+#
+.vscode
