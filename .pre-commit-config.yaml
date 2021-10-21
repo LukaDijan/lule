@@ -3,7 +3,7 @@ default_language_version:
 
 repos:
 - repo: https://github.com/pre-commit/pre-commit-hooks
-  rev: v3.4.0
+  rev: v4.0.1
   hooks:
   - id: trailing-whitespace
     exclude: ^.*\.md$
@@ -18,30 +18,30 @@ repos:
   - id: check-merge-conflict
 
 - repo: https://github.com/jorisroovers/gitlint
-  rev: v0.15.1
+  rev: v0.16.0
   hooks:
   - id: gitlint
 
 - repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
-  rev: v2.0.0
+  rev: v2.2.0
   hooks:
   - id: pretty-format-toml
     args: [--autofix]
   - id: pretty-format-yaml
     args: [--autofix, --indent, '2']
 - repo: https://github.com/adrienverge/yamllint
-  rev: v1.26.1
+  rev: v1.26.3
   hooks:
   - id: yamllint
 
 - repo: https://github.com/timothycrosley/isort
-  rev: 5.8.0
+  rev: 5.9.3
   hooks:
   - id: isort
     additional_dependencies: ['.[pyproject]']
 
 - repo: https://github.com/ambv/black
-  rev: 21.5b0
+  rev: 21.9b0
   hooks:
   - id: black
     name: black-code-formatter
