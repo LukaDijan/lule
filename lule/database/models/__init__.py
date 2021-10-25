@@ -1,17 +1,17 @@
 from .base import db
-from .college import College
-from .college_field import CollegeField
 from .field import Field
+from .institution import Institution
+from .institution_field import InstitutionField
 from .material import Material
-from .student import Student
 from .subject import Subject
+from .user import User
 
 __all__ = [
     "db",
-    "College",
-    "CollegeField",
+    "Institution",
+    "InstitutionField",
     "Field",
     "Material",
-    "Student",
+    "User",
     "Subject",
 ]
