@@ -2,8 +2,8 @@ from fastapi import HTTPException, Security
 from fastapi.security.api_key import APIKeyHeader
 from starlette import status
 
-API_KEY = "lule"
-API_KEY_NAME = "Authorization"
+from .env import API_KEY, API_KEY_NAME
+
 api_key_header = APIKeyHeader(name=API_KEY_NAME)
 
 

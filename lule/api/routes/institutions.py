@@ -18,4 +18,4 @@ async def create_institution(
     institution = await store_institution(
         uuid4(), institution.name, institution.country, institution.city
     )
-    return {institution.id}
+    return {"institution_id": institution.id}
