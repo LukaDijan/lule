@@ -36,7 +36,7 @@ async def read_user(username: str):
 
 
 @router.patch("/users/{user_id}", tags=["User"])
-async def add_inst(email: str, inst_name: str):
+async def add_institution_id(email: str, inst_name: str):
     if student := await get_student_by_email(email):
         if institution := await get_institution_by_name(inst_name):
             await student.update(institution_id=institution.id).apply()
