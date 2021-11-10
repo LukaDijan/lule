@@ -10,4 +10,4 @@ class User(db.Model):
     name = db.Column(db.String(), nullable=True)
     email = db.Column(db.String(), nullable=True, unique=True)
     role = db.Column(db.String())
-    field = db.Column(UUID, db.ForeignKey("field.id"), nullable=True)
+    field = db.Column(UUID, db.ForeignKey("fields.id"), nullable=True)
