@@ -8,4 +8,4 @@ class Subject(db.Model):
 
     id = db.Column(UUID, primary_key=True)
     name = db.Column(db.String(), nullable=True)
-    field = db.Column(UUID, db.ForeignKey("field.id"), nullable=True)
+    field = db.Column(UUID, db.ForeignKey("fields.id"), nullable=True)
