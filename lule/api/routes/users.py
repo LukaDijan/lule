@@ -46,3 +46,9 @@ async def add_field_id(email: str, field_name: str):
         raise HTTPException(status_code=404, detail="Field doesn't exist")
 
     raise HTTPException(status_code=404, detail="User doesn't exist")
+
+
+@router.delete("DELETE /users/{user_id}/subjects/{subject_id}", tags=["User"])
+async def delete_subject(email: str, subject: str):
+    if student := await get_student_by_email(email):
+        return {"status:" "success"}
