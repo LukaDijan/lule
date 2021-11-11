@@ -4,6 +4,7 @@ from fastapi import APIRouter, HTTPException
 
 # from ...database.controller.institutions import get_institution_by_name
 from ...database.controller.fields import get_field_by_name
+from ...database.controller.institutions import get_institution_by_name
 from ...database.controller.users import (
     get_student_by_email,
     get_student_by_name,
@@ -37,14 +38,22 @@ async def read_user(username: str):
 
 
 @router.patch("/users/{user_id}", tags=["User"])
-async def add_field_id(email: str, field_name: str):
+async def add_field_id(email: str, field_name: str, institution_name: str):
     if student := await get_student_by_email(email):
-        if field := await get_field_by_name(field_name):
-            await student.update(field=field.id).apply()
-            return {"status": "success"}
+        if institution := await get_institution_by_name(institution_name):
+            if field := await get_field_by_name(field_name):
+                if field.college_id != institution.id:
+                    raise HTTPException(
+                        status_code=404,
+                        detail="Institution doesen't have named field",
+                    )
+                await student.update(field=field.id).apply()
+                return {"status": "success"}
 
-        raise HTTPException(status_code=404, detail="Field doesn't exist")
-
+            raise HTTPException(status_code=404, detail="Field doesn't exist")
+        raise HTTPException(
+            status_code=404, detail="Institution doesen't exist"
+        )
     raise HTTPException(status_code=404, detail="User doesn't exist")
 
 
