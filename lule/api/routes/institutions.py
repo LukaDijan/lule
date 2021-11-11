@@ -29,7 +29,9 @@ async def create_institution(
 
 
 @router.get("/institutions/{institution_id}", tags=["Institutions"])
-async def return_institution(name: str):
+async def return_institution(
+    name: str, api_key: APIKey = Depends(get_api_key)
+):
     if institution := await get_institution_by_name(name):
         return {
             "institution_id": institution.id,
