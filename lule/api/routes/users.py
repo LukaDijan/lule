@@ -45,7 +45,7 @@ async def add_field_id(email: str, field_name: str, institution_name: str):
                 if field.college_id != institution.id:
                     raise HTTPException(
                         status_code=404,
-                        detail="Institution doesen't have named field",
+                        detail=f"{institution_name} doesen't have {field_name} field",
                     )
                 await student.update(field=field.id).apply()
                 return {"status": "success"}
